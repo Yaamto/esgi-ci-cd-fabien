@@ -2,12 +2,9 @@ name: Bonjour
 on:
   - push
 jobs:
-  lire_readme:
+  add_npm:
     runs-on: ubuntu-22.04
     steps:
       - name: Read README.md
         uses: actions/checkout@v3
-      - run: |
-          sudo apt-get update
-          sudo apt-get install --yes cowsay
-      - run: cat README.md | cowsay # Affiche le contenu du fichier `README.md` à la base du dépôt
+      - run: echo "node_modules/" > ./.gitignore
