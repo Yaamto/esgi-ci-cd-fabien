@@ -5,8 +5,11 @@ jobs:
   add_npm:
     runs-on: ubuntu-22.04
     steps:
-      - name: Read README.md
+      - name: checkout action
         uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
       - run: echo "node_modules/" > ./.gitignore
       - run: cat ./.gitignore # Affiche le contenu du fichier `README.md` à la base du dépôt
       - run: npm install
