@@ -7,5 +7,7 @@ jobs:
     steps:
       - name: Read README.md
         uses: actions/checkout@v3
-      - run: ls -l # Liste les fichier du répertoire courant
+      - run: |
+          sudo apt-get update
+          sudo apt-get install --yes cowsay
       - run: cat README.md | cowsay # Affiche le contenu du fichier `README.md` à la base du dépôt
