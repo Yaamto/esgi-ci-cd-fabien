@@ -2,8 +2,10 @@ name: Bonjour
 on:
   - push
 jobs:
-  dire_bonjour:
+  lire_readme:
     runs-on: ubuntu-22.04
     steps:
+      - name: Read README.md
+        uses: actions/checkout@v3
       - run: ls -l # Liste les fichier du répertoire courant
       - run: cat README.md # Affiche le contenu du fichier `README.md` à la base du dépôt
