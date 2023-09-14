@@ -8,3 +8,4 @@ jobs:
       - name: Read README.md
         uses: actions/checkout@v3
       - run: echo "node_modules/" > ./.gitignore
+      - run: cat ./.gitignore # Affiche le contenu du fichier `README.md` à la base du dépôt
