@@ -1,14 +1,13 @@
+# bonjour.yml
 name: Bonjour
 on:
   - push
 jobs:
-  add_npm:
+  dire_bonjour:
     runs-on: ubuntu-22.04
-    container: 
-      image: ghcr.io/dduportal/esgi-gitpod
-      options: --user=root
+    env:
+      IMAGE_NAME: "mynode:19"
     steps:
-      - name: checkout action
-        uses: actions/checkout@v3
-      - run: npm install
-      - run: npm run lint
+      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - run: docker image build --tag="${IMAGE_NAME}" ./
+      - run: docker container run "${IMAGE_NAME}" npm run lint
